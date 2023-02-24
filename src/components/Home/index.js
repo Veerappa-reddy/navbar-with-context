@@ -1,0 +1,41 @@
+import Navbar from '../Navbar'
+import ThemeContext from '../../context/ThemeContext'
+import './index.css'
+
+const Home = () => (
+  <ThemeContext.Consumer>
+    {value => {
+      const {isDarkTheme} = value
+      return (
+        <div>
+          <Navbar />
+          {isDarkTheme ? (
+            <div className="home-dark-bg-container">
+              <div className="home-container">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/home-dark-img.png"
+                  alt="home"
+                  className="home-img"
+                />
+                <h1 className="dark-home">Home</h1>
+              </div>
+            </div>
+          ) : (
+            <div className="home-bg-container">
+              <div className="home-container">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/home-light-img.png"
+                  alt="home"
+                  className="home-img"
+                />
+                <h1>Home</h1>
+              </div>
+            </div>
+          )}
+        </div>
+      )
+    }}
+  </ThemeContext.Consumer>
+)
+
+export default Home
